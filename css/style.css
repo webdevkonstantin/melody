@@ -57,6 +57,13 @@ body {
   font-weight: 400;
 }
 
+.body-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
 .list-reset {
   margin: 0;
   padding: 0;
@@ -73,7 +80,6 @@ body {
 
 .btn-primary {
   padding: 16px;
-  /* min-width: 297px; */
   background-color: #3596f5;
   border-radius: 6px;
   font-weight: 400;
@@ -90,13 +96,11 @@ body {
 }
 
 .header {
-  /* padding-top: 11px; */
-  /* padding-bottom: 11px; */
   background-color: #635854;
   border-bottom: 4px solid #3596f5;
 }
 
-.nav {
+.header .nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -104,7 +108,7 @@ body {
   color: #fff;
 }
 
-.nav__logo {
+.header .logo {
   display: flex;
   align-items: center;
   margin-right: 10px;
@@ -112,22 +116,20 @@ body {
   width: 100%;
 }
 
-.nav__list {
+.header .nav__list {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* gap: 5%; */
   margin-right: 10px;
   width: 50%;
 }
 
-.nav__item {
-  /* max-width: 130px; */
+.header .nav__item {
   margin-right: 10px;
   min-width: 120px;
 }
 
-.nav__link {
+.header .nav__link {
   display: block;
   padding: 9px 16px;
   font-size: 16px;
@@ -136,32 +138,38 @@ body {
   transition: background-color 0.3s ease-in-out;
 }
 
-.nav__link.active,
-.nav__link:hover {
+.header .nav__link.active,
+.header .nav__link:hover {
   background-color: #3596f5;
 }
 
-.contacts {
+.header .contacts {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
   min-width: 90px;
-  /* text-align: right; */
 }
 
-.contacts__text {
+.header .contacts__text {
   display: block;
   margin-bottom: 4px;
   font-size: 14px;
   line-height: 16px;
 }
 
-.contacts__phone {
+.header .contacts__phone,
+.footer .phone__link {
   display: block;
-  font-weight: 700;
+  font-weight: bold;
   font-size: 17px;
   line-height: 20px;
+  transition: color .3s ease-in-out;
+}
+
+.header .contacts__phone:hover,
+.footer .phone__link:hover {
+  color: #3596f5;
 }
 
 .main {
@@ -171,12 +179,7 @@ body {
 
 .main__container {
   display: flex;
-  /* justify-content: space-between; */
 }
-
-/* .main__left {
-  width: 48%;
-} */
 
 .main__right {
   display: flex;
@@ -187,7 +190,6 @@ body {
   padding-top: 70px;
   padding-bottom: 70px;
   text-align: center;
-  /* height: 100%; */
 }
 
 .building__img-wrap {
@@ -258,8 +260,7 @@ body {
   background-color: rgba(0, 0, 0, 0.8);
   opacity: 0;
   transform: scale(0);
-  /* transition: opacity .3s ease-in-out, transform .2s ease-in-out; */
-  transition: opacity .2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
 }
 
 .modal.is-open {
@@ -276,8 +277,8 @@ body {
   background-color: #fff;
   opacity: 0;
   transform: translateY(-20%);
-  transition: transform .2s ease-in-out, opacity .2s ease-in-out;
-  transition-delay: .2s;
+  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+  transition-delay: 0.2s;
 }
 
 .modal.is-open > .modal-dialog {
@@ -332,7 +333,7 @@ body {
 .flats-img path {
   cursor: pointer;
   opacity: 0;
-  transition: opacity .3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .flats-img path:hover,
@@ -353,11 +354,92 @@ body {
   font-size: 16px;
   line-height: 19px;
   color: #635854;
-  transition: color .2s ease-in-out;
+  transition: color 0.2s ease-in-out;
 }
 
 .flat-link:hover,
 .flat-link.active {
   text-decoration: underline;
+  color: #3596f5;
+}
+
+.footer {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  border-top: 4px solid #3596f5;
+  background-color: #d7d7d7;
+}
+
+.footer .nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer .nav__left,
+.footer .nav__right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 40%;
+}
+
+.footer .logo {
+  display: block;
+  font-size: 0;
+}
+
+.footer .phone {
+  color: #635854;
+}
+
+.footer .phone__text {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.footer .phone__link {
+  display: block;
+  font-weight: bold;
+  font-size: 17px;
+  line-height: 20px;
+  transition: color .3s ease-in-out;
+}
+
+.footer .phone__link:hover {
+  color: #3596f5;
+}
+
+.socials {
+  display: flex;
+  justify-content: space-between;
+  width: 25%;
+}
+
+.socials__link {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
+.socials__img path {
+  transition: fill .2s ease-in-out;
+}
+
+.socials__link .socials__img:hover path {
+  fill: #3596f5;
+}
+
+.footer .nav-list__link {
+  font-size: 16px;
+  line-height: 19px;
+  text-decoration: underline;
+  color: #635854;
+  transition: color .3s ease-in-out;
+}
+
+.footer .nav-list__link:hover {
   color: #3596f5;
 }

@@ -6,4 +6,4 @@
 ### Технологии:
 - html
 - css (bem)
-- javascript
+- javascript (jQuery)
